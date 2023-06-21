@@ -2,9 +2,12 @@
 A cross platform serial client
 
 ## Usage
-1. Download the latest prebuilt release for your platform [ubuntu-20.04-focal realease](), [windows-10 realease](), [mac amd64 release]()
-2. Unzip it
-3. Double click to run
+### Mac 
+1. Download the [latest prebuilt release](https://github.com/BarakBinyamin/puttputt/releases/download/mint/statusdashboard_0.0.0_x64.dmg), and [@seralport library](https://github.com/BarakBinyamin/puttputt/releases/download/mint/@serialport-macx86.zip)
+2. Double click on the dmg, when the installer that pops up, move the app into the applications directory
+3. Navigate to the applications directory in finder, `ctrl+click` the app and select **show package contents**, unzip @serialport in the Contents/MacOS sub-folder
+4. Navigate back to the applications directory in finder, `ctrl+click` the app, select **open**, then select **open** again once a prompt comes up
+5. Serach for the app anytime with `cmd+spacebar`
 
 ### Built & Tested on
 - Vmare vm of ubuntu-20.04-focal on Windows 10 x86_64
@@ -28,3 +31,4 @@ Puttputt is a cross platform serial client. It was developed as an example of ho
 
 # Resources
 - [rs422 reference](https://stackoverflow.com/questions/67905013/node-serialport-not-receiving-data)
+- [mac run anyway](https://www.lifewire.com/fix-developer-cannot-be-verified-error-5183898)
