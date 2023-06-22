@@ -1,15 +1,15 @@
 const {spawnSync, execSync } = require("node:child_process")
 const fs                     = require('fs')
 
-const NODE_VERSION = "node18"
-const BACKEND_BASE = "index.js"
-const BACKEND      = "index3"
+const NODE_VERSION = "node18"    // javscript runtime for pkg
+const BACKEND_BASE = "index.js"  // input file to pkg
+const BACKEND      = "index3"    // reference in tauri/src-tauri/tauri.conf.json
 const APPNAME      = "puttputt"
 
-const PLATFORM     = process.platform
-let   TAURI_SUFFIX = ""
-let   TARGET       = ""
-let   OUTPUT       = ""
+const PLATFORM     = process.platform   // mac, linux, windows ect.
+let   TAURI_SUFFIX = ""                 // tauri sidecar naming convention suffix
+let   TARGET       = ""                 // pkg target os
+let   OUTPUT       = ""                 // pkg output file name, follows tauri sidecar naming convention
 
 async function check_dependencies(){
     const output = spawnSync('rustc', ['-Vv'])

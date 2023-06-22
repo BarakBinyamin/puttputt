@@ -23,6 +23,13 @@ Tested on x86_64: Ubuntu 20.04, MacOS Monterey, Windows 10
 3. Navigate to the applications directory in finder, `ctrl+click` the app and select **show package contents**, unzip @serialport in the Contents/MacOS sub-folder
 4. Navigate back to the applications directory in finder, `ctrl+click` the app, select **open**, then select **open** again once a prompt comes up
 5. Search for the app anytime with `cmd+spacebar`
+### Windows
+1. Download the [latest prebuilt release](https://github.com/BarakBinyamin/puttputt/releases/download/mint/statusdashboard_0.0.0_x64.dmg)
+2. Unzip it
+3. Open up the directory and double click "puttputt" to run
+
+### Build it yourself
+See [#Deployment](#deployment)
 
 ##  Development
 ### Project Directory
@@ -31,15 +38,44 @@ Tested on x86_64: Ubuntu 20.04, MacOS Monterey, Windows 10
 |[backend](backend)                      | Most of the functionality behind this project |
 |[tauri](tauri)                          | Used to compile the app for desktop           |
 |[view](view)                            | Where the UI is developed                     |   
-|[build.sh](build.sh)                    | Automated build script                        |
+|[build.sh](build.js)                    | Automated build script                        |
+|[clean.js](clean.js)                    | Automated cleanup script                      |
 |[.gitignore](.gitignore)                | List of files & folders for git to ignore     |
 
 ### Requirements
+- [Nodejs](https://nodejs.org/en)
+- [rustc](https://www.rust-lang.org/tools/install)
+
+For Ubuntu/linux install some more dependencies:
+```bash
+# todo
+```
+
 ### Dev
+Run `npm install` in the folders **view**, **tauri**, and **backend**
+```bash
+cd tauri
+npm run tauri dev
+```
+Edit files in view to see realtime updates
+
 ### Deployment
+From main project directory
+```bash
+node build.js
+```
+Clear all build files and dependecies
+```bash
+node clean.js
+```
 
 ## Motivation
-Puttputt was developed to learn how to build a cross platform UI. Tauri enables an app to be free of dependencies and run with normal privaleges
+Puttputt was developed to learn how to build a native desktop UI for the top platforms
+
+Tauri + nodejs + pkg + vue + vite enables:
+- Faster development
+- Faster setup
+- Download and usage admin free
 
 Inspired by [@perfect7m/taurine](https://github.com/Perfect7M/taurine)
 

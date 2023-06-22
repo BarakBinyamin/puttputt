@@ -1,5 +1,5 @@
 # Tauri
-Cross-platfrom build folders, each folder corrosponds to a working environment
+Cross-platfrom build tool
 
 An app can only be built on the platform it can run on
 
