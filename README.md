@@ -29,7 +29,7 @@ Tested on x86_64: Ubuntu 20.04, MacOS Monterey, Windows 10
 3. Open up the directory and double click "puttputt" to run
 
 ### Build it yourself
-See [#Deployment](#deployment)
+Follow the [development requirements](#requirements) and skip to [deployment](deployment)
 
 ##  Development
 ### Project Directory
@@ -57,7 +57,7 @@ For Ubuntu/linux install some more dependencies:
 ```
 
 ### Dev
-Run `npm install` in the folders **view**, **tauri**, and **backend**
+Run `npm install` in the folders **view**, **tauri**, and **backend** and then
 ```bash
 cd tauri
 npm run tauri dev
@@ -65,11 +65,13 @@ npm run tauri dev
 Edit files in view to see realtime updates
 
 ### Deployment
-From main project directory
+From main project directory run the follwing command, it should take a while...
 ```bash
 node build.js
 ```
-Clear all build files and dependecies
+The app should either be in a new app sub-directory or on mac available through search: "cmd+space"+"puttputt"
+
+If you want you can clear up the build files run:
 ```bash
 node clean.js
 ```
