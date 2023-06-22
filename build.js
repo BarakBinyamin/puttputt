@@ -55,8 +55,11 @@ async function build_local(){
             fs.cpSync(`${APPNAME}.app`, `/Applications/${APPNAME}.app`,{recursive: true})
             break
         case 'linux':
-            os="linux"; break
+            break
         case 'win32':
+            fs.cpSync(`tauri/src-tauri/target/release/${APPNAME}.exe`,`./app/${APPNAME}.exe/`)
+            fs.cpSync(`tauri/src-tauri/target/release/${BACKEND}.exe`,`./app/${BACKEND}.exe/`)
+            fs.cpSync('tauri/node_modules/@serialport',`./app/@serialport`,{recursive: true})
             os="win"; ext='.exe'; break
         default:
             console.log(`FINISHED`)
