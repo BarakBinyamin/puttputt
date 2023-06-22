@@ -1,0 +1,19 @@
+{
+  "name": "puttputt",
+  "version": "1.0.0",
+  "description": "A cross platform desktop app example. It's a basic serial client",
+  "main": "build.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BarakBinyamin/puttputt.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BarakBinyamin/puttputt/issues"
+  },
+  "homepage": "https://github.com/BarakBinyamin/puttputt#readme"
+}
