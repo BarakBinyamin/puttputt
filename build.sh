@@ -55,6 +55,7 @@ construct_output(){
 }
 
 build-local(){
+    check_dependencies
     echo "Compiling backend..."
     cd $BACKEND && npm install
     construct_target 
@@ -97,8 +98,7 @@ clean(){
     find . -name 'dist' -type d -prune -exec rm -rf '{}' +
 }
 
-main(){
-    check_dependencies
-    build-local
-    #build-release
-}
+# main(){
+#     build-local
+#     #build-release
+# }

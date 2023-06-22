@@ -8,9 +8,10 @@ Tested on x86_64: Ubuntu 20.04, MacOS Monterey, Windows 10
     - [Ubuntu](#ubuntu)
     - [Windows](#windows)
 - [Developers info](#development)
+    - [Project Directory](#project-directory)
     - [Requirements](#requirements)
     - [Dev](#dev)
-    - [Custum Build & Deployment](#deployment)
+    - [Custom Build & Deployment](#deployment)
 - [Technologies](#technologies)
 - [Motivation](#motivation)
 - [Resources](#references)
@@ -24,6 +25,15 @@ Tested on x86_64: Ubuntu 20.04, MacOS Monterey, Windows 10
 5. Serach for the app anytime with `cmd+spacebar`
 
 ##  Development
+### Project Directory
+| Name                                   | Purpose                                       | 
+| :--                                    | :--                                           |
+|[backend](backend)                      | Most of the functionality behind this project |
+|[tauri](tauri)                          | Used to compile the app for desktop           |
+|[view](view)                            | Where the UI is developed                     |   
+|[build.sh](build.sh)                    | Automated build script                        |
+|[.gitignore](.gitignore)                | list of files & folders for git to ignore     |
+
 ### Requirements
 ### Dev
 ### Deployment
