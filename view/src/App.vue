@@ -44,7 +44,7 @@ export default{
     },
     methods:{
         async init(event){
-            this.socket.emit("init", {"path": this.path})
+            this.socket.emit("init", {"path": this.path, "baud": 9600 })
         },
         async sendit(event){
             this.socket.emit("msg", this.msg)
