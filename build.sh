@@ -69,6 +69,7 @@ build-local(){
     fi
     
     echo "Compiling Desktop App..."
+    cd ../view && npm install
     cd ../$BUILD_DIR && npm install && npm run tauri build
     
     case $OS in
