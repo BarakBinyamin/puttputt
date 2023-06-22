@@ -22,7 +22,7 @@ Tested on x86_64: Ubuntu 20.04, MacOS Monterey, Windows 10
 2. Double click on the dmg, when the installer that pops up, move the app into the applications directory
 3. Navigate to the applications directory in finder, `ctrl+click` the app and select **show package contents**, unzip @serialport in the Contents/MacOS sub-folder
 4. Navigate back to the applications directory in finder, `ctrl+click` the app, select **open**, then select **open** again once a prompt comes up
-5. Serach for the app anytime with `cmd+spacebar`
+5. Search for the app anytime with `cmd+spacebar`
 
 ##  Development
 ### Project Directory
