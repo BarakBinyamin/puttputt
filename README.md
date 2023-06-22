@@ -39,7 +39,7 @@ Tested on x86_64: Ubuntu 20.04, MacOS Monterey, Windows 10
 ### Deployment
 
 ## Motivation
-Puttputt was developed to learn how to build a cross platform tool that was free of seperate dependencies and could run with normal privaleges
+Puttputt was developed to learn how to build a cross platform UI. Tauri enables an app to be free of dependencies and run with normal privaleges
 
 Inspired by [@perfect7m/taurine](https://github.com/Perfect7M/taurine)
 
