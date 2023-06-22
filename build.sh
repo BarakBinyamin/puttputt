@@ -1,45 +1,104 @@
 #!/bin/bash
+NODE_VERSION='node18'
+TAURI_SUFFIX=`rustc -Vv | grep host | sed "s/.*: //"`
+LOCALAPPDIR=""
+EXTENSION=""
+APPNAME="puttputt"
+OUTPUT=""
+TARGET=""
+INPUT='index.js'
+NAME="index3"
+ARCH=`uname -m`
+OS=`uname -s`
 
-# https://unix.stackexchange.com/questions/453385/shell-check-if-any-file-in-directory-has-changed
-# https://unix.stackexchange.com/questions/691909/how-can-i-copy-all-files-while-excluding-files-with-a-certain-pattern
-
-# dev
-# build
-# help
-
-BUILD_DIR="none"
-TAURI="tauri/"
+BUILD_DIR="tauri/"
+BACKEND="backend/"
 
 check_dependencies(){
     results=`rustc -Vv`
     if [ $? -eq 0 ]; then
-        BUILD_DIR=${TAURI}`rustc -Vv | grep host | sed "s/.*: //"`
+        echo "Found Rust! but do you have nodejs?"
     else
         printf "Missing Rust, install it from https://www.rust-lang.org/tools/install\n"
         exit 127
     fi
+    hasnode=`node --version`
+    if [ $? -eq 0 ]; then
+        echo "Found Nodejs! Going to next steps..."
+    else
+        printf "Missing Nodejs, install it from https://nodejs.org/en\n"
+        exit 127
+    fi
 }
-build(){
-   if [ -d "$BUILD_DIR" ]; then 
-        cd $BUILD_DIR && npm install && npm run tauri build
-   fi
+
+construct_target(){
+    case $ARCH in
+        x86_64*)   ARCH="x64"       ;;
+        arm64*)    ARCH="arm64"     ;; 
+        *)         echo "unknown architecture";exit ;;
+    esac
+    case $OS in
+        Linux*)   OS="linux"     ;;
+        Darwin*)  OS="mac"       ;; 
+        Msys*)    OS="win"       ;;
+        solaris*) echo "solaris";  exit ;;
+        bsd*)     echo "bsd";       exit ;;
+        *)        echo "unknown os";exit ;;
+    esac
+    TARGET="${NODE_VERSION}-${OS}-${ARCH}"
 }
-add_runtime_dependencies(){
-    # macos --> target/release/bundle/macos/<appname>
-    # add @serialport to target/release/bundle/macos/statusdashboard/Contents/MacOS
+construct_output(){
+    case $OS in
+        win*)     EXTENSION=".exe" ;;
+    esac
+    OUTPUT="${NAME}-${TAURI_SUFFIX}${EXTENSION}"
 }
-move_build_to_top_folder(){
-    echo ""
+
+build-local(){
+    echo "Compiling backend..."
+    cd $BACKEND && npm install
+    construct_target 
+    construct_output
+    npx pkg $INPUT --output $OUTPUT --targets $TARGET
+    if [ $? -eq 0 ]; then
+        echo "Successfully compiled backend!"
+    else
+        printf "Failed to compile backend, exiting ..."
+        exit 127
+    fi
+    
+    echo "Compiling Desktop App..."
+    cd ../$BUILD_DIR && npm install && npm run tauri build
+    
+    case $OS in
+        mac*)     LOCALAPPDIR="src-tauri/target/release/bundle/macos/${APPNAME}.app" ;;
+        *)        echo "TODO";exit;;
+    esac
+    
+    mv $LOCALAPPDIR ../
+    cd ..
+
+    echo "Adding runtime dependencies"
+    case $OS in
+        mac*)     cp -r $BUILD_DIR/node_modules/@serialport ./$APPNAME.app/Contents/MacOS;
+                  echo  "Adding to applications folder";
+                  mv ./$APPNAME.app /Applications;;
+        *)        echo "TODO";exit;;
+    esac
 }
+
 clean(){
+    construct_target 
+    construct_output
+    rm -f $BACKEND/$OUTPUT
+    rm -f tauri/src-tauri/Cargo.lock
     find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +
     find . -name 'target' -type d -prune -exec rm -rf '{}' +
     find . -name 'dist' -type d -prune -exec rm -rf '{}' +
 }
 
-check_dependencies
-build
-
-
-
-
+main(){
+    check_dependencies
+    build-local
+    #build-release
+}

@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npx pkg index.js --output index3-x86_64-pc-windows-msvc.exe --targets node18-win-x64",
     "build-linux": "npx pkg index.js --output index3-x86_64-unknown-linux-gnu --targets node18-linux && chmod +x index3-x86_64-unknown-linux-gnu",
-    "build-mac"  : "npx pkg index.js --output index3-x86_64-apple-darwin --targets node18-macos && chmod +x index3-x86_64-apple-darwin",
+    "build-mac": "npx pkg index.js --output index3-x86_64-apple-darwin --targets node18-macos && chmod +x index3-x86_64-apple-darwin",
     "what-are-these-names-coming-from": "rustc -Vv",
     "what-about-index3": "echo just because, stay consistent in the src-tauri/tauri.conf.json file"
   },
@@ -16,5 +16,8 @@
     "http": "^0.0.1-security",
     "serialport": "10.0.0",
     "socket.io": "^4.6.2"
+  },
+  "pkg":{
+    "assets": ["./assets/hello"]
   }
 }

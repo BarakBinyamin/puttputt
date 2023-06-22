@@ -1,5 +1,19 @@
 # puttputt
-A cross platform serial client
+A cross platform desktop app example. It's a basic serial client
+
+Tested on x86_64: Ubuntu 20.04, MacOS Monterey, Windows 10
+
+- [Usage](#usage)
+    - [Mac](#mac)
+    - [Ubuntu](#ubuntu)
+    - [Windows](#windows)
+- [Developers info](#development)
+    - [Requirements](#requirements)
+    - [Dev](#dev)
+    - [Custum Build & Deployment](#deployment)
+- [Technologies](#technologies)
+- [Motivation](#motivation)
+- [Resources](#references)
 
 ## Usage
 ### Mac 
@@ -9,18 +23,15 @@ A cross platform serial client
 4. Navigate back to the applications directory in finder, `ctrl+click` the app, select **open**, then select **open** again once a prompt comes up
 5. Serach for the app anytime with `cmd+spacebar`
 
-### Built & Tested on
-- Vmare vm of ubuntu-20.04-focal on Windows 10 x86_64
-- Windows 10 x86_64
-- Macbook pro x86_64
-
-## Description
-Puttputt is a cross platform serial client. It was developed as an example of how to build a cross platform application for desktop
-
-## Development
-### Dependencies & Setup
+##  Development
+### Requirements
 ### Dev
-### Build
+### Deployment
+
+## Motivation
+Puttputt was developed to learn how to build a cross platform tool that was free of seperate dependencies and could run with normal privaleges
+
+Inspired by [@perfect7m/taurine](https://github.com/Perfect7M/taurine)
 
 ## Technologies
 - <img text-align="center" src="https://tauri.app/meta/favicon-144x144.png" height="20px"/> [Tauri](https://tauri.app/)  a multi-platform  application build tool
@@ -32,3 +43,5 @@ Puttputt is a cross platform serial client. It was developed as an example of ho
 # Resources
 - [rs422 reference](https://stackoverflow.com/questions/67905013/node-serialport-not-receiving-data)
 - [mac run anyway](https://www.lifewire.com/fix-developer-cannot-be-verified-error-5183898)
+- https://unix.stackexchange.com/questions/453385/shell-check-if-any-file-in-directory-has-changed
+- https://unix.stackexchange.com/questions/691909/how-can-i-copy-all-files-while-excluding-files-with-a-certain-pattern

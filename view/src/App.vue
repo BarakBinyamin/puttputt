@@ -1,9 +1,11 @@
 <template>
     <select @change="init" v-model="path">
-        <option v-for="pathname in paths" :value="pathname">{{pathname}}</option>
+        <option v-for="pathname in paths" 
+        :value="pathname">{{pathname}}</option>
     </select>
-    <input @keyup.enter="sendit" v-model="msg" />
-    <div class="button" @click="get">Submit message</div>    
+    <input @keyup.enter="sendit" v-model="msg" autocomplete="off" 
+    autocorrect="off" autocapitalize="off" spellcheck="false"/>
+    <div class="button" @click="sendit">Submit message</div>    
     <p v-for="item in msgs">{{ item.from }}: {{ item.msg }}</p>
 </template>
 

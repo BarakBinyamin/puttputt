@@ -5,8 +5,14 @@ Space for developing and stroing test features
 ```bash
 npx pkg index2.js --targets node18-macos --config package.json
 ```
+package.json
+```json
+"pkg":{
+    "assets": ["./assets/hello"]
+  }
+```
 
-### c=Compile c on mac
+### Compile c on mac
 ```
 make <filename-without-.c>
 ```

@@ -38,8 +38,8 @@ websockets.on('connection', async (socket) => {
 /* End Setup websockets */
 
 /* Serial Stuff */
-const SerialPort      = require('serialport')
-const ReadlineParser  = require('@serialport/parser-readline')
+const SerialPort     = require('serialport')
+const ReadlineParser = require('@serialport/parser-readline')
 
 async function getAvailableSerialPorts(){
     const  ports = await SerialPort.list()
@@ -50,7 +50,7 @@ async function initSerialPort(serial_port_info, socket){
   if ("serial_port" in socket){
     await socket.serial_port.close()
   }
-  const  serial_port = new SerialPort( serial_port_info.path, {baudRate: 9600, autoOpen: false})
+  const  serial_port = new SerialPort({ path: serial_port_info.path, baudRate: 9600, autoOpen: false})
   socket.serial_port = serial_port
 
   await new Promise((resolve)=>{
@@ -89,7 +89,7 @@ async function sendMsgOverSerial(msg, socket){
       return
    }else{
       console.log(`Sending: ${msg}`)
-      socket.serial_port.write(`Sending: ${msg}\n`)
+      socket.serial_port.write(`${msg}\n`)
    }
 }
 /* End Serial Stuff */
