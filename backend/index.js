@@ -54,14 +54,15 @@ async function initSerialPort(serial_port_info, socket){
   socket.serial_port = serial_port
 
   await new Promise((resolve)=>{
-    serial_port.open((error, reject) =>{
+    serial_port.open((error) =>{
         console.log("Opening serial_port")
         if(error){
           console.error(error)
           socket.emit(websockets.events.error, error.toString())
-          reject()
+          delete socket.serial_port
+        }else{
+          socket.emit(websockets.events.error, `Connected to ${serial_port_info.path} at baud rate ${serial_port_info.baud}`)
         }
-        socket.emit(websockets.events.error, `Connected to ${serial_port_info.path} at baud rate ${serial_port_info.baud}`)
         resolve()
   })})
 
