@@ -43,8 +43,13 @@ See [#Deployment](#deployment)
 |[.gitignore](.gitignore)                | List of files & folders for git to ignore     |
 
 ### Requirements
-- [Nodejs](https://nodejs.org/en)
-- [rustc](https://www.rust-lang.org/tools/install)
+- Download [Nodejs](https://nodejs.org/en)
+- Download [rustc](https://www.rust-lang.org/tools/install)
+
+Clone the repo
+```bash
+git clone https://github.com/BarakBinyamin/puttputt.git && cd puttputt
+```
 
 For Ubuntu/linux install some more dependencies:
 ```bash
