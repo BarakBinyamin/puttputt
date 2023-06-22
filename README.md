@@ -14,7 +14,7 @@ Tested on x86_64: Ubuntu 20.04, MacOS Monterey, Windows 10
     - [Custom Build & Deployment](#deployment)
 - [Technologies](#technologies)
 - [Motivation](#motivation)
-- [Resources](#references)
+- [Resources](#resources)
 
 ## Usage
 ### Mac 
@@ -32,7 +32,7 @@ Tested on x86_64: Ubuntu 20.04, MacOS Monterey, Windows 10
 |[tauri](tauri)                          | Used to compile the app for desktop           |
 |[view](view)                            | Where the UI is developed                     |   
 |[build.sh](build.sh)                    | Automated build script                        |
-|[.gitignore](.gitignore)                | list of files & folders for git to ignore     |
+|[.gitignore](.gitignore)                | List of files & folders for git to ignore     |
 
 ### Requirements
 ### Dev
