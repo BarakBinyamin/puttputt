@@ -93,6 +93,9 @@ clean(){
     construct_output
     rm -f $BACKEND/$OUTPUT
     rm -f tauri/src-tauri/Cargo.lock
+    rm -f tauri/package-lock.json
+    rm -f backend/package-lock.json
+    rm -f view/package-lock.json
     find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +
     find . -name 'target' -type d -prune -exec rm -rf '{}' +
     find . -name 'dist' -type d -prune -exec rm -rf '{}' +
