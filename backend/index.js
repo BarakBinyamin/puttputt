@@ -97,7 +97,6 @@ async function sendMsgOverSerial(msg, socket){
 }
 /* End Serial Stuff */
 
-
 server.listen(PORT, 'localhost', () => {
   console.log(`Serving backend on http://localhost:${PORT}`);
 })

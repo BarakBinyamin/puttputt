@@ -23,13 +23,16 @@ Tested on x86_64: Ubuntu 20.04, MacOS Monterey, Windows 10
 3. Navigate to the applications directory in finder, `ctrl+click` the app and select **show package contents**, unzip @serialport in the Contents/MacOS sub-folder
 4. Navigate back to the applications directory in finder, `ctrl+click` the app, select **open**, then select **open** again once a prompt comes up
 5. Search for the app anytime with `cmd+spacebar`
+
+If your USB isn't showing up in the dropdown you might need to...
+#TODO
 ### Windows
-1. Download the [latest prebuilt release](https://github.com/BarakBinyamin/puttputt/releases/download/mint/statusdashboard_0.0.0_x64.dmg)
+1. Download the [latest prebuilt release]()
 2. Unzip it
 3. Open up the directory and double click "puttputt" to run
 
 ### Build it yourself
-Follow the [development requirements](#requirements) and skip to [deployment](deployment)
+Follow the [development requirements](#requirements) and skip to [deployment](#deployment)
 
 ##  Development
 ### Project Directory
@@ -38,8 +41,9 @@ Follow the [development requirements](#requirements) and skip to [deployment](de
 |[backend](backend)                      | Most of the functionality behind this project |
 |[tauri](tauri)                          | Used to compile the app for desktop           |
 |[view](view)                            | Where the UI is developed                     |   
-|[build.sh](build.js)                    | Automated build script                        |
+|[build.js](build.js)                    | Automated build script                        |
 |[clean.js](clean.js)                    | Automated cleanup script                      |
+|[package.json](package.json)            | Nodejs dependency management file             |
 |[.gitignore](.gitignore)                | List of files & folders for git to ignore     |
 
 ### Requirements
@@ -62,7 +66,7 @@ Run `npm install` in the folders **view**, **tauri**, and **backend** and then
 cd tauri
 npm run tauri dev
 ```
-Edit files in view to see realtime updates
+A cool native window should pop up, edit [view/src/app.vue](view/src/app.vue) to see realtime updates
 
 ### Deployment
 From main project directory run the follwing command, it should take a while...
