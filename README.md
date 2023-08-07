@@ -85,8 +85,7 @@ Puttputt was developed to learn how to build a native desktop UI for the top pla
 
 Tauri + nodejs + pkg + vue + vite enables:
 - Faster development
-- Faster setup
-- Download and usage admin free
+- Admin free App download and usage
 
 Inspired by [@perfect7m/taurine](https://github.com/Perfect7M/taurine)
 
