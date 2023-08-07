@@ -66,7 +66,7 @@ Run `npm install` in the folders **view**, **tauri**, and **backend** and then
 cd tauri
 npm run tauri dev
 ```
-A cool native window should pop up, edit [view/src/app.vue](view/src/app.vue) to see realtime updates
+A cool native window should pop up, edit [view/src/App.vue](view/src/App.vue) to see realtime updates
 
 ### Deployment
 From main project directory run the follwing command, it should take a while...
