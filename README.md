@@ -1,7 +1,7 @@
 # puttputt
 A native desktop app example for windows, mac, and linux. It's a simple serial client
 
-Made with a vue frontend & packedged with a nodejs exectuable
+Made with a vue frontend & packaged with a nodejs exectuable
 
 Tested on x86_64: Ubuntu 20.04, MacOS Monterey, Windows 10
 
